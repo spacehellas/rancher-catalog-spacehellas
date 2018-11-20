@@ -1,0 +1,8 @@
+name: heimdall-apps
+description: |
+  Heimdall applications
+version: 1.0
+category: Platform
+maintainer: Spyros Pantazis
+license: MIT
+projectURL: http://heimdall-h2020.eu/

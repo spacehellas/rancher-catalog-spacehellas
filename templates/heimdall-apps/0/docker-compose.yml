@@ -1,0 +1,23 @@
+version: '2'
+services:
+  heimdall-gui:
+    image: registry.rtd.sph:5000/heimdall:webapp
+    stdin_open: true
+    tty: true
+    labels:
+      io.rancher.container.pull_image: always
+  ws-server:
+    image: registry.rtd.sph:5000/ws-server
+    stdin_open: true
+    tty: true
+    labels:
+      io.rancher.container.pull_image: always
+  lb:
+    image: rancher/lb-service-haproxy:v0.7.15
+    ports:
+    - 80:80/tcp
+    - 9999:9999/tcp
+    labels:
+      io.rancher.container.agent.role: environmentAdmin,agent
+      io.rancher.container.agent_service.drain_provider: 'true'
+      io.rancher.container.create_agent: 'true'
